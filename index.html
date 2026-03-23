@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Status Report Semanal - Liderança</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+        }
+
+        .status-pill {
+            padding: 2px 10px;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .priority-high { border-left: 4px solid #ef4444; }
+        .priority-medium { border-left: 4px solid #f59e0b; }
+        .priority-low { border-left: 4px solid #10b981; }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(226, 232, 240, 1);
+            transition: transform 0.2s ease;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .progress-bar {
+            height: 6px;
+            border-radius: 3px;
+            background: #e2e8f0;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: #3b82f6;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8">
+
+    <div class="max-w-5xl mx-auto">
+        <!-- Header -->
+        <header class="mb-8 flex flex-col md:flex-row md:items-end justify-between gap-4">
+            <div>
+                <h1 class="text-3xl font-bold text-slate-800 tracking-tight">Status Report Semanal</h1>
+                <p class="text-slate-500">Resumo de entregáveis, prioridades e evolução de projetos.</p>
+            </div>
+            <div class="text-right">
+                <span class="text-sm font-medium text-slate-400 block uppercase tracking-widest">Semana Corrente</span>
+                <span class="text-lg font-bold text-blue-600" id="current-date">Março, 2024</span>
+            </div>
+        </header>
+
+        <!-- Métricas Rápidas -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+            <div class="bg-white p-5 rounded-xl shadow-sm border border-slate-200">
+                <p class="text-slate-500 text-sm font-medium mb-1">Total de Iniciativas</p>
+                <p class="text-2xl font-bold text-slate-800">08</p>
+            </div>
+            <div class="bg-white p-5 rounded-xl shadow-sm border border-slate-200">
+                <p class="text-slate-500 text-sm font-medium mb-1">Pontos Críticos</p>
+                <p class="text-2xl font-bold text-red-500">02</p>
+            </div>
+            <div class="bg-white p-5 rounded-xl shadow-sm border border-slate-200">
+                <p class="text-slate-500 text-sm font-medium mb-1">Aguardando Dados</p>
+                <p class="text-2xl font-bold text-amber-500">01</p>
+            </div>
+        </div>
+
+        <!-- Lista de Projetos -->
+        <div class="space-y-4">
+            
+            <!-- IFAMILY -->
+            <div class="glass-card p-6 rounded-2xl priority-high">
+                <div class="flex flex-wrap justify-between items-start gap-4">
+                    <div>
+                        <div class="flex items-center gap-2 mb-1">
+                            <span class="status-pill bg-blue-100 text-blue-700">Em Finalização</span>
+                            <span class="status-pill bg-red-100 text-red-700">Alta Prioridade</span>
+                        </div>
+                        <h2 class="text-xl font-bold text-slate-800">Ifamily</h2>
+                    </div>
+                    <div class="text-right">
+                        <span class="text-xs text-slate-400 block uppercase">Esforço</span>
+                        <span class="font-semibold text-slate-700">Alto</span>
+                    </div>
+                </div>
+                <div class="mt-4 grid md:grid-cols-2 gap-4">
+                    <ul class="text-slate-600 text-sm space-y-2">
+                        <li class="flex items-center gap-2">
+                            <svg class="w-4 h-4 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            Fechamento de fluxo conversacional
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <svg class="w-4 h-4 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            Ajustes finais no site
+                        </li>
+                    </ul>
+                    <div class="bg-slate-50 p-3 rounded-lg">
+                        <p class="text-xs font-bold text-slate-500 uppercase mb-2">Próximo Passo</p>
+                        <p class="text-sm text-slate-700 italic">Planejamento estratégico de comunicações para o lançamento.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- INTEGRAÇÃO FOLHA -->
+            <div class="glass-card p-6 rounded-2xl priority-high bg-red-50/30">
+                <div class="flex flex-wrap justify-between items-start gap-4">
+                    <div>
+                        <div class="flex items-center gap-2 mb-1">
+                            <span class="status-pill bg-red-100 text-red-700 font-bold">Crítico</span>
+                        </div>
+                        <h2 class="text-xl font-bold text-slate-800">Integração Folha</h2>
+                    </div>
+                    <div class="text-right">
+                        <span class="text-xs text-slate-400 block uppercase">Deadline</span>
+                        <span class="font-semibold text-red-600 italic">Tempo Curto</span>
+                    </div>
+                </div>
+                <p class="mt-3 text-sm text-slate-600">Execução de testes no novo ambiente de homologação. Necessário foco total para garantir a estabilidade diante do prazo reduzido.</p>
+            </div>
+
+            <!-- ANOTA AÍ -->
+            <div class="glass-card p-6 rounded-2xl priority-medium">
+                <div class="flex flex-wrap justify-between items-start gap-4">
+                    <div>
+                        <div class="flex items-center gap-2 mb-1">
+                            <span class="status-pill bg-amber-100 text-amber-700 font-bold">Em Testes</span>
+                        </div>
+                        <h2 class="text-xl font-bold text-slate-800">Anota Aí</h2>
+                    </div>
+                    <div class="flex gap-2">
+                        <a href="https://liviapaula-ux.github.io/preonboardinganotai/" target="_blank" class="text-xs font-semibold bg-slate-800 text-white px-3 py-1 rounded hover:bg-slate-700 transition">Ver Material</a>
+                    </div>
+                </div>
+                <div class="mt-4 space-y-3">
+                    <div class="flex items-center justify-between text-sm">
+                        <span class="text-slate-600">Agenda de Pré-Onboarding</span>
+                        <span class="text-slate-400 italic">Concluído</span>
+                    </div>
+                    <div class="flex items-center justify-between text-sm">
+                        <span class="text-slate-600">Testes Sistêmicos</span>
+                        <span class="text-amber-600 font-medium italic">Em andamento</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MOBILIDADE COMERCIAL -->
+            <div class="glass-card p-6 rounded-2xl priority-low bg-green-50/20">
+                <div class="flex flex-wrap justify-between items-start gap-4">
+                    <div>
+                        <div class="flex items-center gap-2 mb-1">
+                            <span class="status-pill bg-green-100 text-green-700 font-bold">Sucesso</span>
+                        </div>
+                        <h2 class="text-xl font-bold text-slate-800">Mobilidade Comercial</h2>
+                    </div>
+                    <a href="https://liviapaula-ux.github.io/proposta1_mobcomercial/" target="_blank" class="text-xs font-semibold bg-green-600 text-white px-3 py-1 rounded hover:bg-green-700 transition">Ver Proposta</a>
+                </div>
+                <p class="mt-3 text-sm text-slate-600 italic">"Time gostou muito da proposta inicial."</p>
+                <div class="mt-4 p-3 border border-green-100 rounded-lg bg-white">
+                    <p class="text-xs font-bold text-green-700 uppercase mb-1">Status Atual</p>
+                    <p class="text-sm text-slate-700">Olivas em fase de extração de dados para consolidação dos pacotes finais.</p>
+                </div>
+            </div>
+
+            <!-- OUTRAS FRENTES -->
+            <div class="grid md:grid-cols-3 gap-4">
+                <!-- VT -->
+                <div class="glass-card p-5 rounded-xl border-l-4 border-slate-300">
+                    <h3 class="font-bold text-slate-800 mb-2">VT</h3>
+                    <p class="text-xs text-slate-500 leading-relaxed italic">Preparação da continuidade da proposta baseada nos dados atuais.</p>
+                </div>
+                
+                <!-- CRECHE E IDIOMAS -->
+                <div class="glass-card p-5 rounded-xl border-l-4 border-amber-300">
+                    <h3 class="font-bold text-slate-800 mb-2">Creche e Idiomas</h3>
+                    <p class="text-xs text-slate-500 leading-relaxed">Definição de Modus Operandi e estruturação de reports (Fase de avanço necessária).</p>
+                    <span class="inline-block mt-2 text-[10px] text-amber-600 font-bold uppercase">Ponto de Atenção</span>
+                </div>
+
+                <!-- FINANCEIRO -->
+                <div class="glass-card p-5 rounded-xl border-l-4 border-slate-300">
+                    <h3 class="font-bold text-slate-800 mb-2">POs e Reports Fin.</h3>
+                    <p class="text-xs text-slate-500 leading-relaxed">Avanço em estudo e proposta de estrutura financeira geral.</p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Footer -->
+        <footer class="mt-12 pt-6 border-t border-slate-200 flex justify-between items-center text-slate-400 text-xs">
+            <p>© 2024 Dashboard de Entregas</p>
+            <div class="flex gap-4">
+                <span>UX & Operações</span>
+                <span class="font-bold text-slate-500">Lívia Paula</span>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Set current month/year
+        const date = new Date();
+        const options = { month: 'long', year: 'numeric' };
+        document.getElementById('current-date').innerText = date.toLocaleDateString('pt-BR', options);
+    </script>
+</body>
+</html>
